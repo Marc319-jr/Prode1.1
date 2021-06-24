@@ -1,0 +1,156 @@
+<head>
+    <%- include('../partials/head')  %>
+    <link href ="/css/reglas.css"  rel = "stylesheet">
+    <title>Reglas</title>
+    </head>
+        
+        <body>
+            <%- include('../partials/header') %>
+    
+        <main class="cuadros_main">
+            <p class="descripcion_cuadros">CUADROS:</p>
+            <div class="cuadros">
+                <div class="ronda_1">
+                    <p class="cuartos">Cuartos de Final:</p>
+                    <div class="partido_cuadros">
+                        <div class="equipos_cuadros">
+                            <div class="pais">
+                                <p>Argentina</p>
+                                <img src="/Imagenes/Argentina.png" alt="">
+                            </div>
+                            <div>
+                                <p>Brasil</p>
+                                <img src="/Imagenes/Brasil.png" alt="">
+                            </div>
+                        </div>
+                        <div class="resultado_cuadros"> - </div>
+                        <div class="border_cuadros"></div>
+                    </div>
+                    <div class="partido_cuadros">
+                        <div class="equipos_cuadros">
+                            <div class="pais">
+                                <p>Colombia</p>
+                                <img src="/Imagenes/Colombia.png" alt="">
+                            </div>
+                            <div>
+                                <p>Chile</p>
+                                <img src="/Imagenes/Chile.png" alt="">
+                            </div>
+                        </div>
+                        <div class="resultado_cuadros"> - </div>
+                        
+                    </div>
+                </div>
+                <div class="ronda_2">
+                    <p class="semis">Semi-Final:</p>
+                    <div class="partido_cuadros">
+                        <div class="equipos_cuadros">
+                            <div class="pais">
+                                <p>Argentina</p>
+                                <img src="/Imagenes/Argentina.png" alt="">
+                            </div>
+                            <div>
+                                <p>Brasil</p>
+                                <img src="/Imagenes/Brasil.png" alt="">
+                            </div>
+                        </div>
+                        <div class="resultado_cuadros"> - </div>
+                        <div class="border_cuadros_semi"></div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="cuadros_dos">
+                <div class="ronda_1">
+                    <div class="partido_cuadros">
+                        <div class="equipos_cuadros">
+                            <div class="pais">
+                                <p>Argentina</p>
+                                <img src="/Imagenes/Argentina.png" alt="">
+                            </div>
+                            <div>
+                                <p>Brasil</p>
+                                <img src="/Imagenes/Brasil.png" alt="">
+                            </div>
+                        </div>
+                        <div class="resultado_cuadros"> - </div>
+                        <div class="border_cuadros"></div>
+                    </div>
+                    <div class="partido_cuadros">
+                        <div class="equipos_cuadros">
+                            <div class="pais">
+                                <p>Colombia</p>
+                                <img src="/Imagenes/Colombia.png" alt="">
+                            </div>
+                            <div>
+                                <p>Chile</p>
+                                <img src="/Imagenes/Chile.png" alt="">
+                            </div>
+                        </div>
+                        <div class="resultado_cuadros"> - </div>
+                    </div>
+                </div>
+                <div class="ronda_2_2">
+                    <div class="partido_cuadros">
+                        <div class="equipos_cuadros">
+                            <div class="pais">
+                                <p>Argentina</p>
+                                <img src="/Imagenes/Argentina.png" alt="">
+                            </div>
+                            <div>
+                                <p>Brasil</p>
+                                <img src="/Imagenes/Brasil.png" alt="">
+                            </div>
+                        </div>
+                        <div class="resultado_cuadros"> - </div>
+                    </div>
+                    
+                </div>
+                <div class="ronda_2">
+                    <div class="Final">
+                        <p class="descripcion_final">GRAN FINAL:</p>
+                        <div class="equipos_cuadros">
+                            <div class="pais">
+                                <p>Argentina</p>
+                                <img src="/Imagenes/Argentina.png" alt="">
+                            </div>
+                            <div>
+                                <p>Brasil</p>
+                                <img src="/Imagenes/Brasil.png" alt="">
+                            </div>
+                        </div>
+                        <div class="resultado_cuadros"> - </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </main>
+        <script src="/js/jquery-1.11.1.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('a[href^="#"]').click(function() {
+      var destino = $(this.hash);
+      if (destino.length == 0) {
+        destino = $('a[name="' + this.hash.substr(1) + '"]');
+      }
+      if (destino.length == 0) {
+        destino = $('html');
+      }
+      $('html, body').animate({ scrollTop: destino.offset().top }, 2000);
+      return false;
+    });
+  });
+  </script>
+  <script>
+
+      $(document).ready(function(){
+          $(".menu_mobile_bt").click(function(){
+              $(".menu_over").slideToggle();
+            });
+        });
+        $( window ).resize(function() {
+            setMenuDisplay();
+            closeMenu($(".menu_mobile_bt"));
+        });
+    </script>
+</html>
