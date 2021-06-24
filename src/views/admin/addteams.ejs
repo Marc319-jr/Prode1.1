@@ -1,0 +1,67 @@
+<head>
+<%- include('../partials/head')  %> 
+<title>Equipos</title>
+</head>
+
+<body>
+    <%- include('../partials/header')  %> 
+    <main>
+        <h1 id ="titulo">Crear equipos para el prode: <%=prode.id%></h1>
+            <div class = "crearEquipos">
+        <% for( let i = 0; i < prode.cantgrupos; i++ ) { %>
+            <div class = "grupo">
+                <h2>Grupo numero: <%=i+1%> </h2>
+                <% for( let j = 0; j < prode.grupos[i].equipos.length; j++ ) { %>
+                        <% if (prode.grupos[i].equipos[j].nombre == "") { %>        
+                        <form action = "/prode/crearEquipos?id=<%=prode.id%>&numeroDeGrupo=<%=i+1%>&numeroDeEquipo=<%=j+1%>"  enctype="multipart/form-data" class="equiposForm" method="POST">
+                        <div class = "equipo">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" name = "nombre">
+                        <label for="bandera">Seleccione la bandera</label>
+                        <input type="file" name = "bandera"> 
+                        <button type="submit">Crear</button>
+                        </div>
+                        </form>
+                        <% } else { %>
+                            <div class = "equipo">
+                                <img src="/image/equipos/<%=prode.grupos[i].equipos[j].bandera%>" alt="bandera" width="80px">
+                                <h1><%=prode.grupos[i].equipos[j].nombre%></h1>
+                            </div>   
+                            <% } %>
+                <% } %>
+            </div>
+        <% } %>
+    </div>
+        
+        <a href="/" id = "siguiente">Next</a>
+
+    </main>
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('a[href^="#"]').click(function() {
+          var destino = $(this.hash);
+          if (destino.length == 0) {
+            destino = $('a[name="' + this.hash.substr(1) + '"]');
+          }
+          if (destino.length == 0) {
+            destino = $('html');
+          }
+          $('html, body').animate({ scrollTop: destino.offset().top }, 2000);
+          return false;
+        });
+      });
+      </script>
+      <script>
+    
+          $(document).ready(function(){
+              $(".menu_mobile_bt").click(function(){
+                  $(".menu_over").slideToggle();
+                });
+            });
+            $( window ).resize(function() {
+                setMenuDisplay();
+                closeMenu($(".menu_mobile_bt"));
+            });
+        </script>
+</body>

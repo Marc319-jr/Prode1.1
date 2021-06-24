@@ -1,0 +1,521 @@
+
+<head>
+<%- include('./partials/head') %>
+</head>
+
+<body>
+    <%- include('./partials/header') %>
+    <main>
+        
+        <div class="main_1" id="#main_1">
+           
+            <div class="proximo_partido">
+                <p class="titulo_proximo_partido">PROXIMO PARTIDO:</p>
+                <div id="countdown" class="row justify-content-center align-items-center">
+                </div>
+                <div class="partido_proximo">
+                    <div class="equipo_1">
+                        <img src="/Imagenes/COLOMBIA.png" alt="" height="60px" width="60px" class="bandera_prox">
+                        <p class="p_proximo_partido">Col</p>
+                    </div>
+                    <a href="#prode">
+                        <input class="boton_prode" type="submit" value="Ir al Prode">
+                    </a>
+                    <div class="equipo_2">
+                        <img src="/Imagenes/venezuela.png" alt="" height="60px" width="60px" class="bandera_prox">
+                        <p class="p_proximo_partido">Par</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="puesto_actual">
+                <div class="fila_puesto">
+                    <p class="titulo_proximo_partido"> TU PUESTO ES:</p>
+                    <p class="puesto">Nº</p>
+                </div>
+                <div class="fila_puesto">
+                    <p class="descripcion_proximo_partido">PUNTOS:</p>
+                    <p class="descripcion_proximo_partido">9 PUNTOS</p>
+                </div>
+                <div>
+                    <a href="#tabla">
+                        <input class="tabla_input" type="submit" value="Ir a la tabla">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="prode" id="prode">
+            <div class="grupo_1">
+                <p class="titulo_grupo">  GRUPO 1:</p>
+                <form class="main_partidos">
+                    <div class="partido primer_partido">
+                        <p class="descripcion_partido">
+                            Dom, 13/06-18Hs
+                        </p>
+                        <div class="equipo_1">
+                            <img src="/Imagenes/<%= locals.prode.grupos[0].partidos[0].local  %>.png" alt="" height="20px" width="20px">
+                            <p><%= locals.prode.grupos[0].partidos[0].local%> </p>
+                            <h2><%= locals.isLogged ? locals.userLogged.grupos[0].partidos[0].resultado[0] : locals.prode.grupos[0].partidos[0].resultado[0]  %></h2>
+                        </div>
+                        <p>-</p>
+                        <div class="equipo_2">
+                            <img src="/Imagenes/<%= locals.prode.grupos[0].partidos[0].visitante  %>.png" alt="" height="20px" width="20px">
+                            <p><%= locals.prode.grupos[0].partidos[0].visitante%> </p>
+                            <h2><%= locals.isLogged ? locals.userLogged.grupos[0].partidos[0].resultado[1] : locals.prode.grupos[0].partidos[0].resultado[1]  %></h2>
+                        </div>
+                        
+                    </div>
+                    <div class="partido">
+                        <p class="descripcion_partido">
+                            Dom, 13/06-21Hs
+                        </p>
+                        <div class="equipo_1">
+                            <img src="/Imagenes/COLOMBIA.png" alt="" height="20px" width="20px">
+                            <p>Col</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                        <p>-</p>
+                        <div class="equipo_2">
+                            <img src="/Imagenes/ecuador.png" alt="" height="20px" width="20px">
+                            <p>Ecu</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="partido">
+                        <p class="descripcion_partido">
+                            Jue, 17/06-18Hs
+                        </p>
+                        <div class="equipo_1">
+                            <img src="/Imagenes/COLOMBIA.png" alt="" height="20px" width="20px">
+                            <p>Col</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                        <p>-</p>
+                        <div class="equipo_2">
+                            <img src="/Imagenes/venezuela.png" alt="" height="20px" width="20px">
+                            <p>Ven</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="partido">
+                        <p class="descripcion_partido">
+                            Jue, 17/06-21Hs
+                        </p>
+                        <div class="equipo_1">
+                            <img src="/Imagenes/Peru.png" alt="" height="20px" width="20px">
+                            <p>Per</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                        <p>-</p>
+                        <div class="equipo_2">
+                            <img src="/Imagenes/brasil.png" alt="" height="20px" width="20px">
+                            <p>Bra</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="partido">
+                        <p class="descripcion_partido">
+                            Dom, 20/06-18Hs
+                        </p>
+                        <div class="equipo_1">
+                            <img src="/Imagenes/ecuador.png" alt="" height="20px" width="20px">
+                            <p>Ecu</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                        <p>-</p>
+                        <div class="equipo_2">
+                            <img src="/Imagenes/venezuela.png" alt="" height="20px" width="20px">
+                            <p>Ven</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="partido">
+                        <p class="descripcion_partido">
+                            Dom, 20/06-21Hs
+                        </p>
+                        <div class="equipo_1">
+                            <img src="/Imagenes/COLOMBIA.png" alt="" height="20px" width="20px">
+                            <p>Col</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                        <p>-</p>
+                        <div class="equipo_2">
+                            <img src="/Imagenes/Peru.png" alt="" height="20px" width="20px">
+                            <p>Per</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="partido">
+                        <p class="descripcion_partido">
+                            Mie, 23/06-18Hs
+                        </p>
+                        <div class="equipo_1">
+                            <img src="Imagenes/ecuador.png" alt="" height="20px" width="20px">
+                            <p>Ecu</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                        <p>-</p>
+                        <div class="equipo_2">
+                            <img src="/Imagenes/Peru.png" alt="" height="20px" width="20px">
+                            <p>Per</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="partido">
+                        <p class="descripcion_partido">
+                            Mie, 24/06-21Hs
+                        </p>
+                        <div class="equipo_1">
+                            <img src="/Imagenes/brasil.png" alt="" height="20px" width="20px">
+                            <p>Bra</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                        <p>-</p>
+                        <div class="equipo_2">
+                            <img src="/Imagenes/COLOMBIA.png" alt="" height="20px" width="20px">
+                            <p>Col</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="partido">
+                        <p class="descripcion_partido">
+                            Dom, 27/06-18Hs
+                        </p>
+                        <div class="equipo_1">
+                            <img src="/Imagenes/venezuela.png" alt="" height="20px" width="20px">
+                            <p>Ven</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                        <p>-</p>
+                        <div class="equipo_2">
+                            <img src="/Imagenes/Peru.png" alt="" height="20px" width="20px">
+                            <p>Per</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="partido">
+                        <p class="descripcion_partido">
+                            Dom, 27/06-18Hs
+                        </p>
+                        <div class="equipo_1">
+                            <img src="/Imagenes/ecuador.png" alt="" height="20px" width="20px">
+                            <p>Ecu</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                        <p>-</p>
+                        <div class="equipo_2">
+                            <img src="/Imagenes/brasil.png" alt="" height="20px" width="20px">
+                            <p>Bra</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                    </div>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            <div class="grupo_1">
+                <p class="titulo_grupo">  GRUPO 2:</p>
+                <form class="main_partidos">
+                    <div class="partido primer_partido">
+                        <p class="descripcion_partido">
+                            Lun, 14/06-18Hs
+                        </p>
+                        <div class="equipo_1">
+                            <img src="/Imagenes/<%= locals.prode.grupos[1].partidos[0].local  %>.png" alt="" height="20px" width="20px">
+                            <p><%= locals.prode.grupos[1].partidos[0].local%> </p>
+                            <h2><%= locals.isLogged ? locals.userLogged.grupos[1].partidos[0].resultado[0] : locals.prode.grupos[1].partidos[0].resultado[0]  %></h2>
+                        </div>
+                        <p>-</p>
+                        <div class="equipo_2">
+                            <img src="/Imagenes/<%= locals.prode.grupos[1].partidos[0].visitante  %>.png" alt="" height="20px" width="20px">
+                            <p><%= locals.prode.grupos[1].partidos[0].visitante%> </p>
+                            <h2><%= locals.isLogged ? locals.userLogged.grupos[1].partidos[0].resultado[1] : locals.prode.grupos[1].partidos[0].resultado[1]  %></h2>
+                        </div>
+                    </div>
+                    <div class="partido">
+                        <p class="descripcion_partido">
+                            Lun, 14/06-21Hs
+                        </p>
+                        <div class="equipo_1">
+                            <img src="/Imagenes/paraguay.png" alt="" height="20px" width="20px">
+                            <p>Par</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                        <p>-</p>
+                        <div class="equipo_2">
+                            <img src="/Imagenes/bolivia.png" alt="" height="20px" width="20px">
+                            <p>Bol</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="partido">
+                        <p class="descripcion_partido">
+                            Vie, 18/06-18Hs
+                        </p>
+                        <div class="equipo_1">
+                            <img src="/Imagenes/chile.png" alt="" height="20px" width="20px">
+                            <p>Chi</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                        <p>-</p>
+                        <div class="equipo_2">
+                            <img src="/Imagenes/bolivia.png" alt="" height="20px" width="20px">
+                            <p>Bol</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="partido">
+                        <p class="descripcion_partido">
+                            Vie, 18/06-21Hs
+                        </p>
+                        <div class="equipo_1">
+                            <img src="/Imagenes/argentina.png" alt="" height="20px" width="20px">
+                            <p>Arg</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                        <p>-</p>
+                        <div class="equipo_2">
+                            <img src="/Imagenes/uruguay.jpg" alt="" height="20px" width="20px">
+                            <p>Uru</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="partido">
+                        <p class="descripcion_partido">
+                            Lun, 21/06-18Hs
+                        </p>
+                        <div class="equipo_1">
+                            <img src="/Imagenes/uruguay.jpg" alt="" height="20px" width="20px">
+                            <p>Uru</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                        <p>-</p>
+                        <div class="equipo_2">
+                            <img src="/Imagenes/chile.png" alt="" height="20px" width="20px">
+                            <p>Chi</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="partido">
+                        <p class="descripcion_partido">
+                            Lun, 21/06-21Hs
+                        </p>
+                        <div class="equipo_1">
+                            <img src="/Imagenes/argentina.png" alt="" height="20px" width="20px">
+                            <p>Arg</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                        <p>-</p>
+                        <div class="equipo_2">
+                            <img src="/Imagenes/paraguay.png" alt="" height="20px" width="20px">
+                            <p>Par</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="partido">
+                        <p class="descripcion_partido">
+                            Jue, 24/06-18Hs
+                        </p>
+                        <div class="equipo_1">
+                            <img src="/Imagenes/bolivia.png" alt="" height="20px" width="20px">
+                            <p>Bol</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                        <p>-</p>
+                        <div class="equipo_2">
+                            <img src="/Imagenes/uruguay.jpg" alt="" height="20px" width="20px">
+                            <p>Uru</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="partido">
+                        <p class="descripcion_partido">
+                            Jue, 24/06-21Hs
+                        </p>
+                        <div class="equipo_1">
+                            <img src="/Imagenes/chile.png" alt="" height="20px" width="20px">
+                            <p>Chi</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                        <p>-</p>
+                        <div class="equipo_2">
+                            <img src="/Imagenes/paraguay.png" alt="" height="20px" width="20px">
+                            <p>Par</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="partido">
+                        <p class="descripcion_partido">
+                            Lun, 28/06-21Hs
+                        </p>
+                        <div class="equipo_1">
+                            <img src="/Imagenes/bolivia.png" alt="" height="20px" width="20px">
+                            <p>Bol</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                        <p>-</p>
+                        <div class="equipo_2">
+                            <img src="/Imagenes/argentina.png" alt="" height="20px" width="20px">
+                            <p>Arg</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="partido">
+                        <p class="descripcion_partido">
+                            Lun, 28/06-21Hs
+                        </p>
+                        <div class="equipo_1">
+                            <img src="/Imagenes/uruguay.jpg" alt="" height="20px" width="20px">
+                            <p>Uru</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                        <p>-</p>
+                        <div class="equipo_2">
+                            <img src="/Imagenes/paraguay.png" alt="" height="20px" width="20px">
+                            <p>Par</p>
+                            <input type = "number" placeholder="0">
+                        </div>
+                    </div>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+        <div class="tabla" id="tabla">
+            <table cellspacing="0" cellpadding="0">
+                <tr class="destacado">
+                  <td translate="no">Puesto</td translate="no">
+                  <td translate="no">Nombre</td translate="no">
+                  <td translate="no">Puntos</td translate="no">
+                  <td translate="no">Plenos</td translate="no">
+                </tr>
+                <tr class="fondo1">
+                    <td translate="no">1º</td translate="no">
+                  <td translate="no">
+                    BrUiels
+                  </td translate="no">
+                  <td translate="no">5</td translate="no">
+                  <td translate="no">1</td translate="no">
+                </tr>
+                <tr class="fondo2">
+                    <td translate="no">2º</td translate="no">
+                    <td translate="no">
+                      Pedro
+                    </td translate="no">
+                    <td translate="no">5</td translate="no">
+                    <td translate="no">1</td translate="no">
+                </tr>
+                <tr class="fondo1">
+                    <td translate="no">3º</td translate="no">
+                    <td translate="no">
+                      Camo
+                    </td translate="no">
+                    <td translate="no">4</td translate="no">
+                    <td translate="no">1</td translate="no">
+                </tr>
+                <tr class="fondo2">
+                    <td translate="no">4º</td translate="no">
+                    <td translate="no">
+                      Lean
+                    </td translate="no">
+                    <td translate="no">4</td translate="no">
+                    <td translate="no">1</td translate="no">
+                </tr>
+                <tr class="fondo1">
+                    <td translate="no">5º</td translate="no">
+                    <td translate="no">
+                      Ale
+                    </td translate="no">
+                    <td translate="no">4</td translate="no">
+                    <td translate="no">1</td translate="no">
+                </tr>
+                <tr class="fondo2">
+                    <td translate="no">6º</td translate="no">
+                    <td translate="no">
+                      Ilu
+                    </td translate="no">
+                    <td translate="no">4</td translate="no">
+                    <td translate="no">1</td translate="no">
+                </tr>
+                <tr class="fondo1">
+                    <td translate="no">7º</td translate="no">
+                    <td translate="no">
+                      Noah
+                    </td translate="no">
+                    <td translate="no">4</td translate="no">
+                    <td translate="no">1</td translate="no">
+                </tr>
+                <tr class="fondo2">
+                    <td translate="no">8º</td translate="no">
+                    <td translate="no">
+                      Marce
+                    </td translate="no">
+                    <td translate="no">3</td translate="no">
+                    <td translate="no">0</td translate="no">
+                </tr>
+                <tr class="fondo1">
+                    <td translate="no">9º</td translate="no">
+                    <td translate="no">
+                      MK
+                    </td translate="no">
+                    <td translate="no">2</td translate="no">
+                    <td translate="no">0</td translate="no">
+                </tr>
+                <tr class="fondo2">
+                    <td translate="no">10º</td translate="no">
+                    <td translate="no">
+                      Lucho
+                    </td translate="no">
+                    <td translate="no">2</td translate="no">
+                    <td translate="no">0</td translate="no">
+                </tr>
+                <tr class="fondo1">
+                    <td translate="no">11º</td translate="no">
+                    <td translate="no">
+                      Lito
+                    </td translate="no">
+                    <td translate="no">2</td translate="no">
+                    <td translate="no">0</td translate="no">
+                </tr>
+                <tr class="fondo2">
+                    <td translate="no">12º</td translate="no">
+                    <td translate="no">
+                      Nico
+                    </td translate="no">
+                    <td translate="no">2</td translate="no">
+                    <td translate="no">0</td translate="no">
+                </tr>
+              </table>
+              <p class="p_reglas_index margin">Link para ver todos los prodes: <a class="a_reglas" target="_blank" href="https://drive.google.com/drive/folders/1_8CpnCPLDAL8d78kFg_oTcV02W3hWQUs?usp=sharing"> drive con PRODES</a></p>
+        </div>
+        
+    </main>
+</body>
+
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('a[href^="#"]').click(function() {
+      var destino = $(this.hash);
+      if (destino.length == 0) {
+        destino = $('a[name="' + this.hash.substr(1) + '"]');
+      }
+      if (destino.length == 0) {
+        destino = $('html');
+      }
+      $('html, body').animate({ scrollTop: destino.offset().top }, 2000);
+      return false;
+    });
+  });
+  </script>
+  <script>
+
+      $(document).ready(function(){
+          $(".menu_mobile_bt").click(function(){
+              $(".menu_over").slideToggle();
+            });
+        });
+        $( window ).resize(function() {
+            setMenuDisplay();
+            closeMenu($(".menu_mobile_bt"));
+        });
+    </script>
+</html>

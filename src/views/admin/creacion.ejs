@@ -1,0 +1,103 @@
+<head>
+<%- include('../partials/head')  %>
+<title>Administrar</title> 
+</head>
+
+<body>
+    <%- include('../partials/header')  %>
+    <main>
+        <br>
+        <form id ="crearProde" action = "/prode/crear" method="POST">
+            <h1 style="color: black;">Crea tu prode</h1>
+            <div class = "creacion">
+            <label for="nombre">Nombre del prode</label>
+            <input type="text" name="nombre">
+            <br>
+            <br>
+            <label for="teamnum">Numero de equipos:</label>
+            <select name = "teamnum">
+                <option>Select a number</option>
+                <% for( let i = 1; i <=20 ; i++ ) { %>
+                    <option><%=i%></option>
+                <% } %>
+            </select>
+            <br>
+            <br>
+            <label for="groupnum">Numero de grupos</label>
+            <select name = "groupnum">
+                <option>Select a number</option>
+                <% for( let i = 1; i < 5; i++)  { %>     
+                    <option><%= i%></option>
+                <% } %>
+            </select>
+            <br>
+            <br>
+            <label for="usernum">Numero de participantes</label>
+            <select name = "usernum">
+                <option>Select a number</option>
+                <% for( let i = 1; i < 20; i++)  { %>     
+                    <option><%= i%></option>
+                <% } %>
+            </select>
+            <br>
+            <br>
+            <button type="reset">Resetear</button>
+            <button type = "submit">Crear</button>
+            </div>    
+         
+             <% if (prodes!= "") { %>
+                <h2>Tus prodes:</h2>
+                <div class = "prodes">
+                    <% for( let i = 0; i < prodes.length; i++ ) { %>
+                        <article class ="prode">
+                            <a style="color:#0F3E76; text-decoration: none;" href="/prode/administrar?prodeId=<%=i%> ">
+                            <h1 style="color:#0F3E76 ;">prode numero <%=i+1  %> </h1>
+                            </a>
+                        </article>
+                    <% } %>
+    
+               
+             
+            <% } %>
+                        
+                    <div class="usuariosProde">
+                        <a href="/user/create">+ Crear Usuario +</a>
+                    </div>
+                </div>
+          
+        </form>
+        <script src="/js/jquery-1.11.1.min.js"></script>
+        <script>
+        $(document).ready(function() {
+            $('a[href^="#"]').click(function() {
+              var destino = $(this.hash);
+              if (destino.length == 0) {
+                destino = $('a[name="' + this.hash.substr(1) + '"]');
+              }
+              if (destino.length == 0) {
+                destino = $('html');
+              }
+              $('html, body').animate({ scrollTop: destino.offset().top }, 2000);
+              return false;
+            });
+          });
+          </script>
+          <script>
+        
+              $(document).ready(function(){
+                  $(".menu_mobile_bt").click(function(){
+                      $(".menu_over").slideToggle();
+                    });
+                });
+                $( window ).resize(function() {
+                    setMenuDisplay();
+                    closeMenu($(".menu_mobile_bt"));
+                });
+            </script>
+      
+
+   
+    
+
+    </main>
+</body>

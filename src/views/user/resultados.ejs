@@ -1,0 +1,73 @@
+<head>
+    <%- include('../partials/head')  %>
+    <title>Resultados usuario</title> 
+</head>
+
+<body>
+    <%- include('../partials/header')  %>
+    <main>
+        <div class="resultadosUser">
+            <h1>Crear partido para <%= participante.username  %> </h1>
+            <div class="gruposCont">
+            <% for( let i = 0; i < participante.grupos.length; i++ ) { %>
+                <div class = "grupoResult">
+                    <h2 style="color:white">GRUPO: <%= i+1 %> </h2>
+                <% for( let j = 0; j < participante.grupos[i].partidos.length; j++ ) { %>
+                    <% let nombreLocal = participante.grupos[i].partidos[j].local 
+                    let nombreVisitante =  participante.grupos[i].partidos[j].visitante 
+                    let banderLocal;
+                    let banderaVisitante
+                 %> 
+                    <% if (participante.grupos[i].partidos[j].resultado[0]) { %>
+                        <div class="partido">
+                            <p class="descripcion_partido">
+                                <%=participante.grupos[i].partidos[j].fecha%> <%=participante.grupos[i].partidos[j].hora  %> 
+                            </p>
+
+                         <div class="equipo_1">
+                            <img src="/Imagenes/<%= locals.prode.grupos[i].partidos[j].local  %>.png" alt="" height="20px" width="20px">
+                            <p><%=participante.grupos[i].partidos[j].local%></p>
+                            <h2><%=participante.grupos[i].partidos[j].resultado[0]%> </h2>
+                        </div>
+                            <p>-</p>
+
+                             <div class="equipo_2">
+                                <img src="/Imagenes/<%= locals.prode.grupos[i].partidos[j].visitante  %>.png" alt="" height="20px" width="20px">
+                                <p><%=participante.grupos[i].partidos[j].visitante%></p>
+                                <h2><%=participante.grupos[i].partidos[j].resultado[1]%></h2>
+                            </div>
+ 
+                        </div>
+                        <% } else {%>
+                    <form class  ="partidoResult" method = "POST" action="/user/guardar/resultadosUser?userId=<%=participante.id%>&grupoId=<%=i%>&partidoId=<%=j%>">
+                        <div class="partido">
+                            <p class="descripcion_partido">
+                                <%=participante.grupos[i].partidos[j].fecha%> <%=participante.grupos[i].partidos[j].hora  %> 
+                            </p>
+
+                         <div class="equipo_1">
+                            <img src="/Imagenes/<%= locals.prode.grupos[i].partidos[j].local  %>.png" alt="" height="20px" width="20px">
+                            <p><%=participante.grupos[i].partidos[j].local%></p>
+                            <input type = "number" placeholder="0" name= "local">
+                        </div>
+                            <p>-</p>
+
+                             <div class="equipo_2">
+                                <img src="/Imagenes/<%= locals.prode.grupos[i].partidos[j].visitante  %>.png" alt="" height="20px" width="20px">
+                                <p><%=participante.grupos[i].partidos[j].visitante%></p>
+                                <input type = "number" placeholder="0" name = "visitante">
+                            </div>
+                            <button type="submit">Ageregar</button>
+ 
+                        </div>
+                    </form>
+                    <% } %>
+                <% } %>
+                </div>
+            <% } %>
+        </div>
+
+        <a href="/">Vovler al home</a>
+        </div>
+    </main>
+</body>

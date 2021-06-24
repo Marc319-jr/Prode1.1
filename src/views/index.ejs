@@ -1,0 +1,279 @@
+
+<head>
+<%- include('./partials/head') %>
+</head>
+
+<body>
+    <%- include('./partials/header') %>
+    <main>
+        
+        <div class="main_1" id="#main_1">
+           
+            <div class="proximo_partido">
+                <p class="titulo_proximo_partido">PROXIMO PARTIDO:</p>
+                <div class="partido_proximo">
+                    <div class="equipo_1">
+                        <img src="/Imagenes/Uruguay.png" alt="" height="30px" width="30px" class="bandera_prox">
+                        <img src="/Imagenes/Uruguay_tipografia.png" alt=""  width="45px">
+                        
+                    </div>
+                    <a href="#prode">
+                        <input class="boton_prode" type="submit" value="Ir al Prode">
+                    </a>
+                    <div class="equipo_2">
+                        <img src="/Imagenes/Chile.png" alt="" height="30px" width="30px" class="bandera_prox">
+                        <img src="/Imagenes/Chile_tipografia.png" alt=""  width="45px" >
+                    </div>
+                </div>
+
+            </div>
+            <% if(locals.isLogged) { %>
+                <div class="puesto_actual">
+                    <div class="fila_puesto">
+                        <p class="titulo_proximo_partido"> TU PUESTO ES:</p>
+                        <p class="puesto"> <%= locals.userLogged.posicion %>º</p>
+                    </div>
+                    <div class="fila_puesto">
+                        <p class="descripcion_proximo_partido">PUNTOS:</p>
+                        <p class="descripcion_proximo_partido"> <%= locals.userLogged.puntos %> </p>
+                    </div>
+                    <div>
+                    <a href="#tabla">
+                        <input class="tabla_input" type="submit" value="Ir a la tabla">
+                    </a>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+        <section class="prode_main">
+            <% if (locals.isLogged) { %>
+                <span></span>
+                <P class="before_match">El prode corresponde a: <%= locals.userLogged.username %>, te deseamos suerte! </P>
+            <% } else {%>                    
+                <% } %>
+            <div class="prode" id="prode">
+                <% if(locals.isLogged) { %>
+                <div class="partidos_Jugados">
+                    <div class="grupo_1">
+                        <p class="titulo_grupo">  GRUPO 1:</p>
+                        <form class="main_partidos">
+                            <div class="partido primer_partido">
+                                    <div class="equipo_1">
+                                        <img src="/Imagenes/<%= locals.prode.grupos[0].partidos[0].local  %>.png" alt="" height="30px" width="30px">
+                                        <img src="/Imagenes/<%= locals.prode.grupos[0].partidos[0].local  %>_tipografia.png" alt=""  width="45px">
+                                        <h2><%= locals.isLogged ? locals.userLogged.grupos[0].partidos[0].resultado[0] : locals.prode.grupos[0].partidos[0].resultado[0]  %></h2>
+                                    </div>
+                                    <p class="font_32">-</p>
+                                    <div class="equipo_2">
+                                        <img src="/Imagenes/<%= locals.prode.grupos[0].partidos[0].visitante  %>.png" alt="" height="30px" width="30px">
+                                        <img src="/Imagenes/<%= locals.prode.grupos[0].partidos[0].visitante  %>_tipografia.png" alt=""  width="45px">
+                                        <h2><%= locals.isLogged ? locals.userLogged.grupos[0].partidos[0].resultado[1] : locals.prode.grupos[0].partidos[0].resultado[1]  %></h2>
+                                    </div>                       
+                            </div>
+                            <% for( let i = 1; i < locals.prode.grupos[0].partidos.length; i++ ) { %>
+                                <div class="partido">
+                                        <div class="equipo_1">
+                                            <img src="/Imagenes/<%= locals.prode.grupos[0].partidos[i].local  %>.png" alt="" height="30px" width="30px">
+                                            <img src="/Imagenes/<%= locals.prode.grupos[0].partidos[i].local  %>_tipografia.png" alt=""  width="45px">
+                                            <h2><%= locals.isLogged ? locals.userLogged.grupos[0].partidos[i].resultado[0] : locals.prode.grupos[0].partidos[i].resultado[0]  %></h2>
+                                        </div>
+                                        <p class="font_32">-</p>
+                                        <div class="equipo_2">
+                                            <img src="/Imagenes/<%= locals.prode.grupos[0].partidos[i].visitante  %>.png" alt="" height="30px" width="30px">
+                                            <img src="/Imagenes/<%= locals.prode.grupos[0].partidos[i].visitante  %>_tipografia.png" alt=""  width="45px">
+                                            <h2><%= locals.isLogged ? locals.userLogged.grupos[0].partidos[i].resultado[1] : locals.prode.grupos[0].partidos[i].resultado[1]  %></h2>
+                                        </div>                       
+                                </div>
+                        </form>
+                        <% } %>
+                    </div>
+                    <div class="grupo_1">
+                        <p class="titulo_grupo">  GRUPO 2:</p>
+                        <form class="main_partidos">
+                            <div class="partido primer_partido">
+                                    <div class="equipo_1">
+                                        <img src="/Imagenes/<%= locals.prode.grupos[1].partidos[0].local  %>.png" alt="" height="30px" width="30px">
+                                        <img src="/Imagenes/<%= locals.prode.grupos[1].partidos[0].local  %>_tipografia.png" alt="" width="45px">
+                                        <h2><%= locals.isLogged ? locals.userLogged.grupos[1].partidos[0].resultado[0] : locals.prode.grupos[1].partidos[0].resultado[0]  %></h2>
+                                    </div>
+                                    <p class="font_32">-</p>
+                                    <div class="equipo_2">
+                                        <img src="/Imagenes/<%= locals.prode.grupos[1].partidos[0].visitante  %>.png" alt="" height="30px" width="30px">
+                                        <img src="/Imagenes/<%= locals.prode.grupos[1].partidos[0].visitante  %>_tipografia.png" alt=""  width="45px">
+                                        <h2><%= locals.isLogged ? locals.userLogged.grupos[1].partidos[0].resultado[1] : locals.prode.grupos[1].partidos[0].resultado[1]  %></h2>
+                                    </div>                       
+                            </div>
+                            <% for( let i = 1; i < locals.prode.grupos[1].partidos.length; i++ ) { %>
+                                <div class="partido">
+                                        <div class="equipo_1">
+                                            <img src="/Imagenes/<%= locals.prode.grupos[1].partidos[i].local  %>.png" alt="" height="30px" width="30px">
+                                            <img src="/Imagenes/<%= locals.prode.grupos[1].partidos[i].local  %>_tipografia.png" alt="" width="45px">
+                                            <h2><%= locals.isLogged ? locals.userLogged.grupos[1].partidos[i].resultado[0] : locals.prode.grupos[1].partidos[i].resultado[0]  %></h2>
+                                        </div>
+                                        <p class="font_32">-</p>
+                                        <div class="equipo_2">
+                                            <img src="/Imagenes/<%= locals.prode.grupos[1].partidos[i].visitante  %>.png" alt="" height="30px" width="30px">
+                                            <img src="/Imagenes/<%= locals.prode.grupos[1].partidos[i].visitante  %>_tipografia.png" alt=""  width="45px">
+                                            <h2><%= locals.isLogged ? locals.userLogged.grupos[1].partidos[i].resultado[1] : locals.prode.grupos[1].partidos[i].resultado[1]  %></h2>
+                                        </div>                       
+                                </div>
+                            
+                            <% } %>
+                        </form>
+                        <% } %>
+                    </div>
+                </div>
+                <p class="before_match">Estos son los resultados hasta ahora de la Copa America:</p>
+                <div class="partidos_Jugados">
+                    <div class="grupo_1">
+                        <p class="titulo_grupo">  GRUPO 1:</p>
+                        <form class="main_partidos">
+                            <div class="partido primer_partido">
+                                <p class="descripcion_partido">
+                                    <%= locals.prode.grupos[0].partidos[0].fecha%> <%= locals.prode.grupos[0].partidos[0].hora%>
+                                </p>
+                                <div class="equipo_1">
+                                    <img src="/Imagenes/<%= locals.prode.grupos[0].partidos[0].local  %>.png" alt="" height="30px" width="30px">
+                                    <img src="/Imagenes/<%= locals.prode.grupos[0].partidos[0].local  %>_tipografia.png" alt=""  width="45px">
+                                    <h2><%= locals.prode.grupos[0].partidos[0].resultado[0]  %></h2>
+                                </div>
+                                <p class="font_32">-</p>
+                                <div class="equipo_2">
+                                    <img src="/Imagenes/<%= locals.prode.grupos[0].partidos[0].visitante  %>.png" alt="" height="30px" width="30px">
+                                    <img src="/Imagenes/<%= locals.prode.grupos[0].partidos[0].visitante  %>_tipografia.png" alt=""  width="45px">
+                                    <h2><%= locals.isLogged ? locals.userLogged.grupos[0].partidos[0].resultado[1] : locals.prode.grupos[0].partidos[0].resultado[1]  %></h2>
+                                </div>
+                            </div>
+                            <% for( let i = 1; i < locals.prode.grupos[0].partidos.length; i++ ) { %>
+                                <% if( locals.prode.grupos[0].partidos[i].resultado[0] != "x") {%>
+                                <div class="partido">
+                                    <p class="descripcion_partido">
+                                        <%= locals.prode.grupos[0].partidos[i].fecha%> <%= locals.prode.grupos[0].partidos[i].hora%>
+                                    </p>
+                                        <div class="equipo_1">
+                                            <img src="/Imagenes/<%= locals.prode.grupos[0].partidos[i].local  %>.png" alt=""  height="30px" width="30px">
+                                            <img src="/Imagenes/<%= locals.prode.grupos[0].partidos[i].local  %>_tipografia.png" alt="" width="45px">
+                                            <h2><%=  locals.prode.grupos[0].partidos[i].resultado[0]  %></h2>
+                                        </div>
+                                        <p class="font_32">-</p>
+                                        <div class="equipo_2">
+                                            <img src="/Imagenes/<%= locals.prode.grupos[0].partidos[i].visitante  %>.png" alt="" height="30px" width="30px">
+                                            <img src="/Imagenes/<%= locals.prode.grupos[0].partidos[i].visitante  %>_tipografia.png" alt=""  width="45px">
+                                            <h2><%= locals.prode.grupos[0].partidos[i].resultado[1]  %></h2>
+                                        </div>                       
+                                </div>
+                                <% } } %>
+                        </form>
+                    </div>
+                    <div class="grupo_1">
+                        <p class="titulo_grupo">  GRUPO 2:</p>
+                        <form class="main_partidos">
+                            <div class="partido primer_partido">
+                                <p class="descripcion_partido">
+                                    <%= locals.prode.grupos[1].partidos[0].fecha%> <%= locals.prode.grupos[1].partidos[0].hora%>
+                                </p>
+                                    <div class="equipo_1">
+                                        <img src="/Imagenes/<%= locals.prode.grupos[1].partidos[0].local  %>.png" alt="" height="30px" width="30px">
+                                        <img src="/Imagenes/<%= locals.prode.grupos[1].partidos[0].local  %>_tipografia.png" alt="" width="45px">
+                                        <h2><%= locals.prode.grupos[1].partidos[0].resultado[0]  %></h2>
+                                    </div>
+                                    <p class="font_32">-</p>
+                                    <div class="equipo_2">
+                                        <img src="/Imagenes/<%= locals.prode.grupos[1].partidos[0].visitante  %>.png" alt="" height="30px" width="30px">
+                                        <img src="/Imagenes/<%= locals.prode.grupos[1].partidos[0].visitante  %>_tipografia.png" alt=""  width="45px">
+                                        <h2><%=  locals.prode.grupos[1].partidos[0].resultado[1]  %></h2>
+                                    </div>                       
+                            </div>
+                            <% for( let i = 1; i < locals.prode.grupos[1].partidos.length; i++ ) { %>
+                            <% if( locals.prode.grupos[1].partidos[i].resultado[0] != "x") {%>
+                                <div class="partido">
+                                    <p class="descripcion_partido">
+                                        <%= locals.prode.grupos[1].partidos[i].fecha%> <%= locals.prode.grupos[1].partidos[i].hora%>
+                                    </p>
+                                        <div class="equipo_1">
+                                            <img src="/Imagenes/<%= locals.prode.grupos[1].partidos[i].local  %>.png" alt="" height="30px" width="30px">
+                                            <img src="/Imagenes/<%= locals.prode.grupos[1].partidos[i].local  %>_tipografia.png" alt="" width="45px">
+                                            <h2><%= locals.prode.grupos[1].partidos[i].resultado[0]  %></h2>
+                                        </div>
+                                        <p class="font_32">-</p>
+                                        <div class="equipo_2">
+                                            <img src="/Imagenes/<%= locals.prode.grupos[1].partidos[i].visitante  %>.png" alt="" height="30px" width="30px">
+                                            <img src="/Imagenes/<%= locals.prode.grupos[1].partidos[i].visitante  %>_tipografia.png" alt="" width="45px">
+                                            <h2><%= locals.prode.grupos[1].partidos[i].resultado[1]  %></h2>
+                                        </div>                       
+                                </div>
+                            <%  } }%>   
+                        </form>
+                    </div>
+                </div>
+            
+        </section>
+        <div class="tabla" id="tabla">
+            <table cellspacing="0" cellpadding="0">
+                <tr class="destacado">
+                  <td translate="no">Puesto</td translate="no">
+                  <td translate="no">Nombre</td translate="no">
+                  <td translate="no">Puntos</td translate="no">
+                  <td translate="no">Plenos</td translate="no">
+                </tr>
+                <% for( let i = 0; i < users.length; i++ ) { %>
+                    <% if (i%2 ==0) { %>
+                        <tr class="fondo1">
+                            <td translate="no"><%= users[i].posicion%>º</td translate="no">
+                            <td translate="no">
+                                <%= users[i].username%>
+                            </td translate="no">
+                            <td translate="no"><%= users[i].puntos%></td translate="no">
+                            <td translate="no"> <%= users[i].plenos%></td="no">
+                        </tr>
+                     
+                    <% } else {%>
+                        <tr class="fondo2">
+                            <td translate="no"><%= users[i].posicion%>º</td translate="no">
+                            <td translate="no">
+                                <%= users[i].username%>
+                            </td translate="no">
+                            <td translate="no"><%= users[i].puntos%></td translate="no">
+                            <td translate="no"> <%= users[i].plenos%></td="no">
+                        </tr>
+            
+                        <% } %>
+                <% } %>
+
+                
+              </table>
+              <p class="p_reglas_index margin">Link para ver todos los prodes: <a class="a_reglas" target="_blank" href="https://drive.google.com/drive/folders/1_8CpnCPLDAL8d78kFg_oTcV02W3hWQUs?usp=sharing"> drive con PRODES</a></p>
+        </div>
+        
+    </main>
+</body>
+
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('a[href^="#"]').click(function() {
+      var destino = $(this.hash);
+      if (destino.length == 0) {
+        destino = $('a[name="' + this.hash.substr(1) + '"]');
+      }
+      if (destino.length == 0) {
+        destino = $('html');
+      }
+      $('html, body').animate({ scrollTop: destino.offset().top }, 2000);
+      return false;
+    });
+  });
+  </script>
+  <script>
+
+      $(document).ready(function(){
+          $(".menu_mobile_bt").click(function(){
+              $(".menu_over").slideToggle();
+            });
+        });
+        $( window ).resize(function() {
+            setMenuDisplay();
+            closeMenu($(".menu_mobile_bt"));
+        });
+    </script>
+</html>

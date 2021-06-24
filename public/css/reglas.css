@@ -1,0 +1,32 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.reglas, html{
+background-color: #0F3E76
+}
+.p_reglas {
+    text-align: center;
+    font-size: 32px;
+    color: white;
+    font-family: 'montserrat',sans-serif;
+    font-weight: bold;
+}
+#ul_reglas {
+    margin: 20px 60px;
+}
+#ul_reglas li {
+    padding: 20px;
+    font-size: 24px;
+    color: white;
+    font-family: 'montserrat',sans-serif;
+}
+.a_reglas {
+    color: #019bb6;
+}
+.underline{
+    text-decoration: underline;
+}
+.margin {
+    margin-bottom: 20px;
+}

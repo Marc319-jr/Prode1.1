@@ -1,0 +1,73 @@
+<head>
+<%- include('../partials/head')  %>
+<link href ="/css/reglas.css"  rel = "stylesheet">
+<title>Reglas</title>
+</head>
+    
+    <body>
+        <%- include('../partials/header') %>
+
+        <main class="reglas">
+            <p class="p_reglas margin">Link para ver todos los prodes: <a class="a_reglas" target="_blank" href="https://drive.google.com/drive/folders/1_8CpnCPLDAL8d78kFg_oTcV02W3hWQUs?usp=sharing"> drive con PRODES</a></p>
+            <p class="p_reglas underline">
+                Reglas de nuestro prode:
+            </p>
+            <section>
+                <ul id="ul_reglas">
+                    <li>
+                        Cada participante debere entragar los resultados de cada una de las rondas correspondientes 1 hora antes de que comience el primer partido, en caso de pasarse de dicho horario, solo contaran los partidos en los cuales el lapso para que empiece sea menor a 1 hora.
+
+                    </li>
+                    <li>
+                        los PRODE seran enviados a traves de un excel a Pedro o a Marce.
+                    </li>
+                    <li>
+                        Dentro de la fase de grupos cada Resultado Pleno(Ganador/empate y resultado identico), vale 3 puntos
+                    </li>
+                    <li>
+                        Durante todo el PRODE cada vez que se acierte ganador/empate, sin acertar PLENO, valdra 1 punto.
+                    </li>
+                    <li>
+                        los Plenos a partir de Cuartos de final sumaran 4 puntos
+                    </li>
+                    <li>
+                       En la final un Pleno Valdra 5 puntos
+                    </li>
+                    <li>
+                        A partir de Cuartos de final, si el partido termina en empate, aunque no se acierte el ganador, pero si se acierta el empate, valdra 1 punto
+                    </li>
+                    <li>Mientras que si se acierta PLENO empate pero no el ganador, se obtendran por unica vez 2 puntos</li>
+                </ul>
+            </section>
+        </main>
+        <script src="/js/jquery-1.11.1.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('a[href^="#"]').click(function() {
+      var destino = $(this.hash);
+      if (destino.length == 0) {
+        destino = $('a[name="' + this.hash.substr(1) + '"]');
+      }
+      if (destino.length == 0) {
+        destino = $('html');
+      }
+      $('html, body').animate({ scrollTop: destino.offset().top }, 2000);
+      return false;
+    });
+  });
+  </script>
+  <script>
+
+      $(document).ready(function(){
+          $(".menu_mobile_bt").click(function(){
+              $(".menu_over").slideToggle();
+            });
+        });
+        $( window ).resize(function() {
+            setMenuDisplay();
+            closeMenu($(".menu_mobile_bt"));
+        });
+    </script>
+    </body>
+
+            

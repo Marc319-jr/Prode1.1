@@ -1,0 +1,104 @@
+<head>
+    <%- include('../partials/head') %>
+        <title>Editar Prode</title>
+</head>
+
+
+<body>
+    <%- include('../partials/header') %>
+        <main>
+            <h1 id="titulo">Crear partidos para el prode: <%=prode.nombre%>
+            </h1>
+            <div class="crearEquipos">
+                <% for( let i=0; i < prode.cantgrupos; i++ ) { %>
+                    <div class="grupo">
+                        <% for( let j=0; j < prode.cantequipos; j++ ) { %>
+                            <% if (prode.grupos[i].partidos[j]) { %>
+                                <div id="partido">
+                                    <h2>grupo: <%=i+1%> partido: <%= j+1 %></h2>
+                                    <form action="/prode/<%=i%>/<%=j%>/<%=prode.id%>" method="POST" >
+                                        <div class="equipos">
+                                            <img src="/Imagenes/<%= locals.prode.grupos[i].partidos[j].local  %>.png" alt="" height="40px" width="40px">
+                                            <h1><%=prode.grupos[i].partidos[j].apodoLocal%> </h1>
+                                            <% if (prode.grupos[i].partidos[j].resultado[0] == "x" ) { %>
+                                                <input type="number" name="local"> 
+                                            <% } else {%>  
+                                                <h1><%=prode.grupos[i].partidos[j].resultado[0]%></h1>
+                                                <% } %>                                          <h1>vs</h1>
+                                            <% if (prode.grupos[i].partidos[j].resultado[0] == "x" ) { %>
+                                                <input type="number" name="visitante"> 
+                                            <% } else {%>
+                                                <h1><%=prode.grupos[i].partidos[j].resultado[1]%></h1>
+                                                <% } %>
+                                            <h1><%=prode.grupos[i].partidos[j].apodoVisitante%> </h1>
+                                            <img src="/Imagenes/<%= locals.prode.grupos[i].partidos[j].visitante  %>.png" alt="" height="40px" width="40px">
+                                        </div>
+                                        <div class = "info">
+                                            <h1>Hora: <%=prode.grupos[i].partidos[j].hora%></h1>
+                                            <h1>Fecha: <%=prode.grupos[i].partidos[j].fecha%></h1>
+                                            <h1>Estadio: <%=prode.grupos[i].partidos[j].estadio%></h1>
+                                        </div>
+                                        <% if (prode.grupos[i].partidos[j].resultado[0] == "x" ) { %>
+                                            <button type="submit"> ENVIAR</button>
+                                        <% } else { %>
+                                            <button type="submit"> EDITAR</button>
+                                            <% } %>
+
+                                    </form>
+                                </div>
+                                <% } else { %>
+                                    <form method="POST"
+                                        action="/prode/crearPartido?prode=<%=prode.id %> &grupo=<%=i+1%>&partido=<%=j+1%>"
+                                        class="partido">
+
+                                        <div class="equipo">
+                                            <h2>grupo: <%=i+1%> partido: <%= j+1 %>
+                                            </h2>
+                                            <br>
+                                            <div class="partido">
+                                                <select name="local">
+                                                    <option>Equipo 1</option>
+                                                    <% for( let k=0; k < prode.grupos[i].cantequipos; k++ ) { %>
+                                                        <option>
+                                                            <%=prode.grupos[i].equipos[k].nombre %>
+                                                        </option>
+                                                        <% } %>
+
+                                                </select>
+                                                <h4>VS</h4>
+                                                <select name="visitante">
+                                                    <option>Equipo 2</option>
+                                                    <% for( let k=0; k < prode.grupos[i].cantequipos; k++ ) { %>
+                                                        <option>
+                                                            <%=prode.grupos[i].equipos[k].nombre %>
+                                                        </option>
+
+                                                        <% } %>
+
+                                                </select>
+                                            </div>
+                                            <br>
+                                            <label for="estadio">Estadio:</label>
+                                            <input type="text" name="estadio">
+                                            <label for="fecha">Fecha:</label>
+                                            <input type="date" name="fecha">
+                                            <label for="hora">Horario:</label>
+                                            <input type="time" name="hora">
+                                            <button type="submit">Crear</button>
+
+                                        </div>
+                                    </form>
+
+                                    <% } %>
+
+
+
+
+                                        <% } %>
+
+                    </div>
+
+                    <% } %>
+            </div>
+        </main>
+</body>

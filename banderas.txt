@@ -1,0 +1,19 @@
+ <% let nombreLocal = participante.grupos[i].partidos[j].local 
+                       let nombreVisitante =  participante.grupos[i].partidos[j].visitante 
+                       let banderLocal;
+                       let banderaVisitante
+                    %> 
+                 <% for( let k = 0; k < participante.grupos[i].equipos.length; k++ ) { %>
+                        <% (nombreLocal == participante.grupos[i].equipos[k].nombre) ? (banderaLocal = participante.grupos[i].equipos[k].bandera) : (banderaLocal = "");  %>
+                        <p>grupo <%= i  %> equipo: <%= k  %>  </p>
+                        <img src="/image/equipos/<%=banderaLocal%>" alt="bandera" height="20px" width="20px">
+
+
+                 <% } %>
+                 <% for( let k = 0; k < participante.grupos[i].equipos.length; k++ ) { %>
+                    <% (nombreVisitante == participante.grupos[i].equipos[k].nombre) ? (banderaVisitante = participante.grupos[i].equipos[k].bandera) : (banderaVisitante = "");  %>
+                    <p>grupo <%= i+1  %> equipo: <%= k+1  %>  </p>
+                    <img src="/image/equipos/<%=banderaVisitante%>" alt="bandera" height="20px" width="20px">
+
+
+             <% } %>

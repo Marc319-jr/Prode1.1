@@ -1,0 +1,110 @@
+<tr class="fondo1">
+                    <td translate="no">1º</td translate="no">
+                    <td translate="no">
+                        Camota
+                    </td translate="no">
+                    <td translate="no">9</td translate="no">
+                    <td translate="no">2</td translate="no">
+                <tr class="fondo2">
+                    <td translate="no">2º</td translate="no">
+                    <td translate="no">
+                      Ale
+                    </td translate="no">
+                    <td translate="no">9</td translate="no">
+                    <td translate="no">2</td translate="no">
+                </tr>
+                <tr class="fondo1">
+                    <td translate="no">3º</td translate="no">
+                    <td translate="no">
+                      Lucho
+                    </td translate="no">
+                    <td translate="no">8</td translate="no">
+                    <td translate="no">2</td translate="no">
+                </tr>
+                <tr class="fondo2">
+                    <td translate="no">4º</td translate="no">
+                    <td translate="no">
+                      Norma
+                    </td translate="no">
+                    <td translate="no">8</td translate="no">
+                    <td translate="no">2</td translate="no">
+                </tr>
+                <tr class="fondo1">
+                    <td translate="no">5º</td translate="no">
+                        <td translate="no">
+                          Marce
+                        </td translate="no">
+                        <td translate="no">7</td translate="no">
+                        <td translate="no">1</td translate="no">
+                </tr>
+                <tr class="fondo2">
+                    <td translate="no">6º</td translate="no">
+                    <td translate="no">
+                      Pedro
+                    </td translate="no">
+                    <td translate="no">7</td translate="no">
+                    <td translate="no">1</td translate="no">
+                </tr>
+                <tr class="fondo1">
+                    <td translate="no">7º</td translate="no">
+                    <td translate="no">
+                      Nike
+                    </td translate="no">
+                    <td translate="no">7</td translate="no">
+                    <td translate="no">1</td translate="no">
+                </tr>
+                <tr class="fondo2">
+                    <td translate="no">8º</td translate="no">
+                        <td translate="no">
+                          BruUri
+                        </td translate="no">
+                        <td translate="no">7</td translate="no">
+                        <td translate="no">1</td translate="no">
+                </tr>
+                <tr class="fondo1">
+                    <td translate="no">9º</td translate="no">
+                    <td translate="no">
+                      Lean
+                    </td translate="no">
+                    <td translate="no">6</td translate="no">
+                    <td translate="no">1</td translate="no">
+                </tr>
+                
+                <tr class="fondo2">
+                    <td translate="no">10º</td translate="no">
+                    <td translate="no">
+                      Ilu
+                    </td translate="no">
+                    <td translate="no">6</td translate="no">
+                    <td translate="no">1</td translate="no">
+                </tr>
+                <tr class="fondo1">
+                    <td translate="no">11º</td translate="no">
+                    <td translate="no">
+                      Lito
+                    </td translate="no">
+                    <td translate="no">6</td translate="no">
+                    <td translate="no">1</td translate="no">
+                </tr>
+                <tr class="fondo2">
+                    <td translate="no">12º</td translate="no">
+                    <td translate="no">
+                      Tito
+                    </td translate="no">
+                    <td translate="no">4</td translate="no">
+                    <td translate="no">0</td translate="no">
+                </tr>
+
+                <% for( let i = 1; i <= users.length; i++ ) { %>
+                    <% if(i%2!=0){ %>
+                        <tr class="fondo_1">
+                    <% }else{ %>
+                        <tr class="fondo_2">
+                    <% } %>
+                    <% if (locals.userLogged.puesto == i){ %>
+                        <td translate="no"><%= i %>º</td>
+                        <td translate="no"><%= userLogged.username %> </td>
+                        <td translate="no"><%= userLogged.puntos %> </td>
+                        <td translate="no"><%= userLogged.plenos %> </td>
+                    </tr>
+                    <% } } %>

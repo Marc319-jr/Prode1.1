@@ -1,0 +1,35 @@
+<head>
+    <%- include('../partials/head') %>
+    <title>Register</title>
+    </head>
+    
+    
+    <body>
+        <main class = "register">
+            <div class = "foto">
+               
+                <img src="/Imagenes/user/login.jpeg" alt="register">
+               
+            </div>
+            <div class = "formulario">
+                <a href="/">
+                <img src="/Imagenes/plv.png" alt="logo" width="150px">
+                </a>
+                <form>
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" name = "nombre">
+                    <label for="email">Email</label>
+                    <input type="email" name="email">
+                    <label for="password">Contraseña</label>
+                    <input type="password">
+                    <div class = botones>
+                    <button type="submit">Crear usuario</button>
+                    <button type="reset">Reset</button>
+                </div>
+                <a href="/user/login">Ya tienes un usuario? ingresa aca</a>
+
+                </form>
+
+            </div>
+        </main>
+    </body>

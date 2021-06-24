@@ -1,0 +1,47 @@
+<head>
+<%- include('../partials/head')  %> 
+<title>Create user</title>
+</head>
+
+<body>
+    <%- include('../partials/header')  %> 
+    <main>
+        <div class="crearUsuario">
+            <h1>Crear participante</h1>
+            <form action="/user/guardar" method="POST" class = "formUser">
+            <label for="username">Nomre</label>
+            <input type="text" name = "username">
+            <label for="prode">A que prode pertenece</label>
+            <select name = "prode">
+                <option>Seleccione el prdoe</option>
+                <% for( let i = 0; i < prodes.length; i++ ) { %>
+                    <option value="<%=i%>"><%= prodes[i].nombre  %> </option>
+                
+                <% } %>
+            </select>
+            <label for ="ganador">Posible campeon</label>
+            <select name = "ganador">
+                <option>Seleccione el equipo</option>
+                <% for( let i = 0; i < prodes.length; i++ ) { %>
+                    <% for( let j = 0; j < prodes[i].cantgrupos; j++ ) { %>
+                        <% for( let k = 0; k < prodes[i].grupos[j].equipos.length; k++ ) { %>
+                            <option><%= prodes[i].grupos[j].equipos[k].nombre   %> </option>
+                        
+                        <% } %>
+                    
+                    <% } %>
+                
+                <% } %>
+            </select>            <label for="goleador">Goleador:</label>
+            <input type="text" name="goleador">
+            <label for="frase">Frase inspiradora</label>
+            <input type="text" name="frase">
+
+            <button type="submit">guardar</button>
+
+            </form>
+            
+        </div>
+        
+    </main>
+</body>
